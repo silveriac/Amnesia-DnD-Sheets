@@ -1,0 +1,103 @@
+{
+    "CharacterName": "Baldric",
+    "Class": "Paladin",
+    "Level": 4,
+    "Background": "Soldier",
+    "Race": "Human",
+    "Alignment": "Lawful Neutral",
+    "XP": null,
+    "Inspiration": null,
+    "Attributes": {
+      "Strength": 16,
+      "Dexterity": 9,
+      "Constitution": 18,
+      "Intelligence": 12,
+      "Wisdom": 10,
+      "Charisma": 14
+    },
+    "Modifiers": {
+      "STR": 3,
+      "DEX": -1,
+      "CON": 4,
+      "INT": 1,
+      "WIS": 0,
+      "CHA": 2
+    },
+    "SavingThrows": {
+      "Strength": 3,
+      "Dexterity": -1,
+      "Constitution": 4,
+      "Intelligence": 1,
+      "Wisdom": 2,
+      "Charisma": 4
+    },
+    "Skills": {
+      "Acrobatics": -1,
+      "Animal Handling": 0,
+      "Arcana": 1,
+      "Athletics": 5,
+      "Deception": 2,
+      "History": 1,
+      "Insight": 0,
+      "Intimidation": 4,
+      "Investigation": 1,
+      "Medicine": 2,
+      "Nature": 1,
+      "Perception": 0,
+      "Performance": 2,
+      "Persuasion": 4,
+      "Religion": 1,
+      "Sleight of Hand": -1,
+      "Stealth": -1,
+      "Survival": 0
+    },
+    "ProficiencyBonus": 2,
+    "ArmorClass": 17,
+    "Initiative": -1,
+    "Speed": 20,
+    "HitPoints": {
+      "Max": 44,
+      "Current": null,
+      "Temporary": null
+    },
+    "HitDice": {
+      "Total": "4d10",
+      "Used": null
+    },
+    "PassiveWisdom": 10,
+    "PersonalityTraits": "Driven. Calm. Serious.",
+    "Ideals": "Justice",
+    "Bonds": "Family",
+    "Flaws": "Filled with rage, obsessed with vengeance",
+    "Equipment": [
+      "Chain mail",
+      "A small soldier doll",
+      "An invitation to a Royal wedding"
+    ],
+    "Currency": {
+      "CP": null,
+      "SP": null,
+      "EP": null,
+      "GP": 20,
+      "PP": null
+    },
+    "ProficienciesAndLanguages": "All armors, shields, simple weapons, martial weapons",
+    "FeaturesAndTraits": {
+      "Lay on Hands": "20 points",
+      "Spell Save DC": 12,
+      "Spell Attack Modifier": 4,
+      "Divine Smite": "2d8",
+      "Fighting Style": "Duelist (+2 dmg when using only one one-handed weapon)",
+      "Oath of Vengeance": ["Bane", "Hunter's Mark"]
+    },
+    "Spellcasting": {
+      "Slots": 5,
+      "PreparedSpells": [
+        "Cure Wounds",
+        "Command",
+        "Searing Smite",
+        "Compelled Duel"
+      ]
+    },
+    "Weapons": []
+  }

@@ -36,3 +36,192 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+html{
+    background: linear-gradient(to top, rgba(129, 12, 133, 0.5), rgba(135, 140, 207, 0.8)), url("../public/prism.png");
+    font-family: "Tuffy", sans-serif;;
+}
+body{
+    width: 1000px;
+    aspect-ratio: 1/1.4;
+    background-color: white;
+    padding: 10px;
+    margin-inline: auto;
+    margin-block: 10px;
+}
+header, main, div, span, ul, section, footer{
+    /* outline: solid red 2px; */
+    /* padding: 10px; kill this */
+}
+.description, .stat{
+    margin-block: 5px;
+}
+header{
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+div, span{
+    position: relative;
+}
+p{
+    padding: 5px;
+    margin: 30px;
+}
+p, span, label{
+    text-transform: capitalize;
+    width: fit-content;
+    margin: auto;
+}
+ul, li{
+    margin: auto;
+    margin-top: 0;
+    margin-left: 5px;
+    list-style-type: none;
+    padding: 0;
+}
+li:first-child{
+    margin-bottom: 15px;
+    border-bottom: 2px solid black;
+}
+main{
+    width: 100%;
+    height: 90%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.stat:not(>.description){
+    height: 50%;
+    margin: auto;
+    font-size: 35px;
+    width: fit-content;
+}
+.description{
+    width: 80%;
+    height: 35%;
+    margin: auto;
+    border-top: solid black 2px;
+}
+#nameContainer{
+    width: 35%;
+    height: 100%;
+    display: block;
+}
+#roleContainer{
+    width: 65%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+}
+#left{
+    height: 90%;
+}
+#right{
+    height: 100%;
+}
+#leftBottom{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+}
+#generalStats{
+    width: 100%;
+    height: 9%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+}
+#attributeSection{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+#characterTraits > div{
+    height: 150px;
+}
+#characterTraits > div:nth-child(5){
+    height: 500px;
+    margin-bottom: 20px;
+}
+#characterTraits > div:nth-child(5) > div:last-child{
+    margin-bottom: 20px;
+    height: 30px;
+}
+#equipment{
+    height: 95%;
+}
+.modifier{
+    font-size: 35px;
+    border-bottom: 2px solid black;
+}
+.attribute{
+    display: grid;
+    grid-template-columns: 3fr 7fr;
+    border: solid black 2px;
+    border-radius: 5px;
+    height: 190px;
+}
+.attribute > div{
+    display: grid;
+    padding-right: 10px;
+    grid-template-rows: 2fr 1fr 1fr;
+    border-right: solid black 2px;
+
+}
+.attribute .description{
+    font-weight: 700;
+}
+
+
+
+/*-----BORDERS-----*/
+header{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#generalStats{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#characterTraits{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#characterTraits > div, #characterTraits > div > div:first-child{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+#right{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+/*-----BLACKOUT-----*/
+/* #name, #class, #background, #race, #alignment, #armorClass, #initiative, #speed, #hitPoints, #personalityTraits, #ideals, #bonds, #flaws, #equipment, #strengthSave, #dexteritySave, #constitutionSave, #intelligenceSave, #wisomSave, #charismaSave, #athletics, #actobatics, #sleightOfHand, #stealth, #arcana, #history, #investigation, #nature, #religion, #animalHandling, #insight, #medicine, #perception, #survival, #deception, #intimidation, #performance, #persuasion{
+    background-color: black;
+} */
+
+/* .stat, .stat-horizontal, .modifier, .core-stat{
+    background-color: black;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+    cursor: pointer;
+    border-inline: 2px solid white;
+}  */
+  .stat{
+    white-space: pre-wrap;
+  }
+input{
+}
+input:checked{
+    opacity: 1;
+}
+li > span{
+    border: 2px solid black;
+    border-radius: 5px;
+}
