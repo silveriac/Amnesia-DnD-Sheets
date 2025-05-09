@@ -7,6 +7,8 @@
     "Alignment": "Lawful Neutral",
     "XP": null,
     "Inspiration": null,
+    "SaveProficiencies": ["Wisdom", "Charisma"],
+    "SkillProficiencies": ["Athletics", "Intimidation", "Medicine", "Persuasion"],
     "Attributes": {
       "Strength": 16,
       "Dexterity": 9,
