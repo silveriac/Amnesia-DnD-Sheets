@@ -2,6 +2,7 @@
     "CharacterName": "Baldric",
     "Class": "Paladin",
     "Level": 4,
+    "Spellcaster": true,
     "Background": "Soldier",
     "Race": "Human",
     "Alignment": "Lawful Neutral",
@@ -83,17 +84,17 @@
       "GP": 20,
       "PP": null
     },
-    "ProficienciesAndLanguages": "All armors, shields, simple weapons, martial weapons",
+    "ProficienciesAndLanguages": ["All armors", "shields", "simple weapons", "martial weapons"],
     "FeaturesAndTraits": {
       "Lay on Hands": "20 points",
-      "Spell Save DC": 12,
-      "Spell Attack Modifier": 4,
       "Divine Smite": "2d8",
       "Fighting Style": "Duelist (+2 dmg when using only one one-handed weapon)",
-      "Oath of Vengeance": ["Bane", "Hunter's Mark"]
+      "Oath of Vengeance. Spells": ["Bane", "Hunter's Mark"]
     },
     "Spellcasting": {
       "Slots": 5,
+      "Spell Save DC": 12,
+      "Spell Attack Modifier": 4,
       "PreparedSpells": [
         "Cure Wounds",
         "Command",

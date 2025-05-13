@@ -1,4 +1,5 @@
 import './App.css';
+import spells from './spell-links.json';
 import baldric from './baldric.json';
 import { useState } from 'react';
 
@@ -12,8 +13,6 @@ const dndSkills = {
   };
 
 let character = baldric; //change this based on queryParams
-//console.log(Object.keys(dndSkills))
-Object.keys(dndSkills).map((element) => {console.log(element)});
 
 const generalStats = [
     { stat: character.ProficiencyBonus, description: "Proficiency Bonus" },
@@ -38,13 +37,14 @@ const characterTraits = [
     { stat: character.Equipment.join("\n"), description: "Equipment" },
 ];
 
+
 function StatComponent({ stat, description }) {
     const [isVisible, setVisibility, style] = useVisibility(false);
 
     return (
         <div>
             <div onClick={() => setVisibility(true)} className="stat" style={style}>
-                {isVisible ? stat : "0"}
+                {stat}
             </div>
             <div className="description">
                 <p>{description}</p>
@@ -54,26 +54,32 @@ function StatComponent({ stat, description }) {
 };
 
 function AttributeComponent({ attribute, description, skillproficiencies, saveproficiencies}) {
-    const modifier = Math.floor((attribute - 10) / 2);
-    //console.log(saveproficiencies.includes("Wisdom"));
-    
+    const [isVisible, setVisibility, style] = useVisibility(false);
+    let modifier = Math.floor((attribute - 10) / 2);
+    let modifierPlus = modifier > 0 ? "+" + modifier.toString() : modifier;
+    let savingThrow = saveproficiencies.includes(attribute) ? modifier + character.ProficiencyBonus : modifier;
     return (
         <div className="attribute">
             <div>
-                <span className="modifier">{modifier}</span>
-                <span className="core-stat">{attribute}</span>
+                <div onClick={() => setVisibility(true)} className="modifier" style={style}>
+                    <span>{isVisible? modifierPlus : 0}</span>
+                    <br/>
+                    <span className="core-stat">{isVisible? attribute : "+0"}</span>
+                </div>
+
                 <span className="description">{description}</span>
             </div>
             <ul>
                 <SkillComponent
-                        skillStat={saveproficiencies.includes(attribute) ? modifier + character.ProficiencyBonus : modifier}
+                        skillStat={savingThrow > 0 ? "+" + savingThrow.toString() : savingThrow}
                         skillName= "Saving Throw"
                 />
                 {dndSkills[description].map((element, index) =>{
+                    let skill = skillproficiencies.includes(element) ? modifier + character.ProficiencyBonus : modifier;
                     return(
                         <SkillComponent
-                        skillStat={skillproficiencies.includes(element) ? modifier + character.ProficiencyBonus : modifier}
-                        skillName={element}
+                            skillStat={skill > 0 ? "+" + skill.toString() : skill}
+                            skillName={element}
                         />
                     )
                 })}
@@ -83,72 +89,160 @@ function AttributeComponent({ attribute, description, skillproficiencies, savepr
 };
 
 function SkillComponent({skillStat, skillName}) {
+    const [isVisible, setVisibility, style] = useVisibility(false);
+
     return (
         <li>
-            <span className="stat-horizontal">
-                {skillStat}
+            <span onClick={() => setVisibility(true)} className="stat-horizontal" style={style}>
+                {isVisible? skillStat : 0}
             </span>
             <span>{skillName}</span>
         </li>
     );
 };
 
-function useVisibility(initial = false) {
-    const [isVisible, setVisibility] = useState(initial);
+function ProficiencyComponent({proficiency}) {
+    const [isVisible, setVisibility, style] = useVisibility(false);
+    return(
+        <>
+            <span onClick={() => setVisibility(true)} style={style}>
+                {isVisible? proficiency : "No item"}
+            </span>
+        </>
+    );
+};
 
+function TraitsComponent({traitName, traitDescription}) {
+    const [isVisible, setVisibility, style] = useVisibility(false);
+    if(Array.isArray(traitDescription)){
+        traitDescription = traitDescription.map(element => (
+            <>
+                <a href={spells[element][1]} target="_blank" rel="noreferrer">
+                    {element}
+                </a>
+                <br />
+            </>
+        ));
+    };
+    return(
+        <>
+            <span onClick={() => setVisibility(true)} style={style}>
+                <span>
+                    {isVisible && ("• " + traitName + ": ")}
+                </span>
+            <br/>
+                {isVisible? traitDescription : "No item"}
+            </span>
+        </>
+    );
+};
+
+function SpellcastingComponent({proficiency}) {
+    const [isVisible, setVisibility, style] = useVisibility(false);
+    return(
+        <div>
+            <span onClick={() => setVisibility(true)} style={style}>
+                • Spellcasting: not much for the moment, make some structure for this
+            </span>
+        </div>
+    );
+};
+
+
+function Container1({}) {
+    return (
+        <div id="container1">
+            <div>
+                <header>
+                    <section id="nameContainer">
+                        <StatComponent stat={character.CharacterName} description="Character Name" />
+                    </section>
+                    <section id="roleContainer">
+                        {roleStats.map(element => (
+                            <StatComponent stat={element.stat} description={element.description} />
+                        ))}
+                    </section>
+                </header>
+                <main>
+                    <section id="left">
+                        <section id="generalStats">
+                            {generalStats.map(element => (
+                                <StatComponent stat={element.stat} description={element.description} />
+                            ))}
+                        </section>
+                        <section id="leftBottom">
+                            <section id="attributeSection">
+                                {Object.keys(dndSkills).map((element) =>  (
+                                    <AttributeComponent
+                                        attribute={character.Attributes[element]}
+                                        description={element}
+                                        skillproficiencies={character.SkillProficiencies}
+                                        saveproficiencies={character.SaveProficiencies}
+                                    />
+                                ))}
+                            </section>
+                            <section id="characterTraits">
+                                {characterTraits.map(element => (
+                                    <StatComponent stat={element.stat} description={element.description} />
+                                ))}
+                            </section>
+                        </section>
+                    </section>
+                    <section id="right">
+                        <div>
+                            {character.ProficienciesAndLanguages.map(element => (
+                                <ProficiencyComponent proficiency={element} />
+                            ))}
+                            <div className='description'>Proficientes and languages</div>
+                        </div>
+                        <div>
+                            {Object.keys(character.FeaturesAndTraits).map((element) => (
+                                <TraitsComponent traitName={element} traitDescription={character.FeaturesAndTraits[element]}/>
+                            ))}
+                            {character.Spellcaster === true ? <SpellcastingComponent /> : ""}
+                            <div className='description'>Features and traits</div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+    );
+};
+
+function Container2({}) {
+    const [isActive, setActive, style] = useActive(false);
+    return (
+        <div id="container2">
+
+        </div>
+    );
+};
+
+const useVisibility = (initial = false) => {
+    const [isVisible, setVisibility] = useState(initial);
     const style = isVisible ? {} : {
         backgroundColor: "black",
         cursor: "pointer",
+        webkitUserSelect: "none",
+        msUserSelect: "none",
+        userSelect: "none"
     };
-
     return [isVisible, setVisibility, style];
 };
+
+const  useActive = (initial = false) =>{
+    const [isActive, setActive] = useState(initial);
+        const style = isActive ? {} : {
+        display: "none"
+    };
+    return [isActive, setActive, style];
+}
 
 function App() {
     return (
         <div className="App">
-            <header>
-                <section id="nameContainer">
-                    <StatComponent stat={character.CharacterName} description="Character Name" />
-                </section>
-                <section id="roleContainer">
-                    {roleStats.map(element => (
-                        <StatComponent stat={element.stat} description={element.description} />
-                    ))}
-                </section>
-            </header>
-            <main>
-                <section id="left">
-                    <section id="generalStats">
-                        {generalStats.map(element => (
-                            <StatComponent stat={element.stat} description={element.description} />
-                        ))}
-                    </section>
-
-                    <section id="leftBottom">
-                        <section id="attributeSection">
-                            {Object.keys(dndSkills).map((element) =>  (
-                                //console.log(element);
-                                
-                                <AttributeComponent
-                                    attribute={character.Attributes[element]}
-                                    description={element}
-                                    skillproficiencies={character.SkillProficiencies}
-                                    saveproficiencies={character.SaveProficiencies}
-                                />
-                            ))}
-                        </section>
-                        <section id="characterTraits">
-                            {characterTraits.map(element => (
-                                <StatComponent stat={element.stat} description={element.description} />
-                            ))}
-                        </section>
-                    </section>
-                </section>
-                <section id="right">
-
-                </section>
-            </main>
+            <Container1 />
+            <Container2 />
         </div>
     );
 }
