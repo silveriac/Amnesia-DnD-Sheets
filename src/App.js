@@ -137,13 +137,30 @@ function TraitsComponent({traitName, traitDescription}) {
     );
 };
 
-function SpellcastingComponent({proficiency}) {
+function SpellcastingComponent({mana, saveDC, attackMod}) {
     const [isVisible, setVisibility, style] = useVisibility(false);
     return(
-        <div>
-            <span onClick={() => setVisibility(true)} style={style}>
-                • Spellcasting: not much for the moment, make some structure for this
+        <div onClick={() => setVisibility(true)} style={style}>
+            <span>
+                <b>• Spellcasting</b>
             </span>
+            <br />
+            <span>
+                <b>Mana:</b> {mana}
+            </span>
+            <br />
+            <span>
+                <b>Spell Save DC:</b> {saveDC}
+            </span>
+            <br />
+            <span>
+                <b>Spell Attack Modifier:</b> {attackMod}
+            </span>
+            <br />
+            <span className='toggleModal'>
+                Spell List
+            </span>
+            <br />
         </div>
     );
 };
@@ -199,7 +216,10 @@ function Container1({}) {
                             {Object.keys(character.FeaturesAndTraits).map((element) => (
                                 <TraitsComponent traitName={element} traitDescription={character.FeaturesAndTraits[element]}/>
                             ))}
-                            {character.Spellcaster === true ? <SpellcastingComponent /> : ""}
+                            {character.Spellcaster === true ?
+                                <SpellcastingComponent mana={character.Spellcasting.Slots} attackMod={character.Spellcasting['Spell Attack Modifier']} saveDC={character.Spellcasting['Spell Save DC']} />
+                                : ""
+                            }
                             <div className='description'>Features and traits</div>
                         </div>
                     </section>
