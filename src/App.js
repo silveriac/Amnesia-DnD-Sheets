@@ -177,13 +177,11 @@ function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
                     <button onClick={toggleSpellList}>Cerrar</button>
                     <div className='spellLvl'>
                         {Object.keys(spellsObject).map((spellList, index) =>  {
-                           //add a div wrapper here with the corresponding spell lvl
                             return(
                                 <div>
                                     <p>Level {Object.keys(spellsObject)[index]} Spells</p>
                                     {
                                         spellsObject[spellList].map((element) =>{
-                                        console.log(element);
                                         return(<Spell item={element} />)
                                         })
                                     }
@@ -200,11 +198,17 @@ function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
 };
 
 function Spell({item}){
-    const [isVisible, setVisibility] = useState(false);
-                                console.log("hola");
+    const [isVisible, setVisibility, style] = useVisibility(false);
+    console.log(style);
     
     return(
-        <div>{item}</div>
+        <span onClick={() => setVisibility(true)} style={style}>
+            {isVisible?
+                <a href={spells[item][1]} target="_blank" rel="noreferrer">{item}</a>
+                : "no item"
+            }
+            <br />
+        </span>
     )
 }
 
@@ -215,7 +219,9 @@ const useVisibility = (initial = false) => {
         cursor: "pointer",
         webkitUserSelect: "none",
         msUserSelect: "none",
-        userSelect: "none"
+        userSelect: "none",
+        color: "black",
+        textDecoration: "none"
     };
     return [isVisible, setVisibility, style];
 };
