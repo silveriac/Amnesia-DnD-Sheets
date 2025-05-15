@@ -95,12 +95,18 @@
       "Slots": 5,
       "Spell Save DC": 12,
       "Spell Attack Modifier": 4,
-      "PreparedSpells": [
-        "Cure Wounds",
-        "Command",
-        "Searing Smite",
-        "Compelled Duel"
-      ]
+      "PreparedSpells":{
+        "1":[
+          "Cure Wounds",
+          "Command",
+          "Searing Smite",
+          "Compelled Duel"
+        ],
+        "2":[
+          "asdsa",
+          "asd"
+        ]
+      }
     },
     "Weapons": []
   }

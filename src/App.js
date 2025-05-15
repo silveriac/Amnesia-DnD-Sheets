@@ -13,6 +13,7 @@ const dndSkills = {
   };
 
 let character = baldric; //change this based on queryParams
+let spellSheetVisible = false;
 
 const generalStats = [
     { stat: character.ProficiencyBonus, description: "Proficiency Bonus" },
@@ -137,7 +138,7 @@ function TraitsComponent({traitName, traitDescription}) {
     );
 };
 
-function SpellcastingComponent({mana, saveDC, attackMod}) {
+function SpellcastingComponent({mana, saveDC, attackMod, toggleSpellList}) {
     const [isVisible, setVisibility, style] = useVisibility(false);
     return(
         <div onClick={() => setVisibility(true)} style={style}>
@@ -157,86 +158,55 @@ function SpellcastingComponent({mana, saveDC, attackMod}) {
                 <b>Spell Attack Modifier:</b> {attackMod}
             </span>
             <br />
-            <span className='toggleModal'>
-                Spell List
-            </span>
+            {isVisible &&
+                <span className='toggleModal' onClick={toggleSpellList}>
+                    Spell List
+                </span>
+            }
             <br />
         </div>
     );
 };
 
-
-function Container1({}) {
+function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
+    
     return (
-        <div id="container1">
-            <div>
-                <header>
-                    <section id="nameContainer">
-                        <StatComponent stat={character.CharacterName} description="Character Name" />
-                    </section>
-                    <section id="roleContainer">
-                        {roleStats.map(element => (
-                            <StatComponent stat={element.stat} description={element.description} />
-                        ))}
-                    </section>
-                </header>
-                <main>
-                    <section id="left">
-                        <section id="generalStats">
-                            {generalStats.map(element => (
-                                <StatComponent stat={element.stat} description={element.description} />
-                            ))}
-                        </section>
-                        <section id="leftBottom">
-                            <section id="attributeSection">
-                                {Object.keys(dndSkills).map((element) =>  (
-                                    <AttributeComponent
-                                        attribute={character.Attributes[element]}
-                                        description={element}
-                                        skillproficiencies={character.SkillProficiencies}
-                                        saveproficiencies={character.SaveProficiencies}
-                                    />
-                                ))}
-                            </section>
-                            <section id="characterTraits">
-                                {characterTraits.map(element => (
-                                    <StatComponent stat={element.stat} description={element.description} />
-                                ))}
-                            </section>
-                        </section>
-                    </section>
-                    <section id="right">
-                        <div>
-                            {character.ProficienciesAndLanguages.map(element => (
-                                <ProficiencyComponent proficiency={element} />
-                            ))}
-                            <div className='description'>Proficientes and languages</div>
-                        </div>
-                        <div>
-                            {Object.keys(character.FeaturesAndTraits).map((element) => (
-                                <TraitsComponent traitName={element} traitDescription={character.FeaturesAndTraits[element]}/>
-                            ))}
-                            {character.Spellcaster === true ?
-                                <SpellcastingComponent mana={character.Spellcasting.Slots} attackMod={character.Spellcasting['Spell Attack Modifier']} saveDC={character.Spellcasting['Spell Save DC']} />
-                                : ""
-                            }
-                            <div className='description'>Features and traits</div>
-                        </div>
-                    </section>
-                </main>
-            </div>
-        </div>
+        <>
+            {showSpellList && (
+                <div id="spellList">
+                    <button onClick={toggleSpellList}>Cerrar</button>
+                    <div className='spellLvl'>
+                        {Object.keys(spellsObject).map((spellList, index) =>  {
+                           //add a div wrapper here with the corresponding spell lvl
+                            return(
+                                <div>
+                                    <p>Level {Object.keys(spellsObject)[index]} Spells</p>
+                                    {
+                                        spellsObject[spellList].map((element) =>{
+                                        console.log(element);
+                                        return(<Spell item={element} />)
+                                        })
+                                    }
+                                </div>
+                            )
+
+
+                         })}
+                    </div>
+                </div>
+             )}
+        </>
     );
 };
 
-function Container2({}) {
-    const [isActive, setActive, style] = useActive(false);
-    return (
-        <div id="container2">
-
-        </div>
-    );
-};
+function Spell({item}){
+    const [isVisible, setVisibility] = useState(false);
+                                console.log("hola");
+    
+    return(
+        <div>{item}</div>
+    )
+}
 
 const useVisibility = (initial = false) => {
     const [isVisible, setVisibility] = useState(initial);
@@ -250,19 +220,77 @@ const useVisibility = (initial = false) => {
     return [isVisible, setVisibility, style];
 };
 
-const  useActive = (initial = false) =>{
-    const [isActive, setActive] = useState(initial);
-        const style = isActive ? {} : {
-        display: "none"
-    };
-    return [isActive, setActive, style];
-}
-
 function App() {
+    const [showSpellList, setShowSpellList] = useState(false);
+    const toggleSpellList = () => {
+        setShowSpellList(prev => !prev);
+    };
     return (
         <div className="App">
-            <Container1 />
-            <Container2 />
+            <div id="container1">
+                <div>
+                    <header>
+                        <section id="nameContainer">
+                            <StatComponent stat={character.CharacterName} description="Character Name" />
+                        </section>
+                        <section id="roleContainer">
+                            {roleStats.map(element => (
+                                <StatComponent stat={element.stat} description={element.description} />
+                            ))}
+                        </section>
+                    </header>
+                    <main>
+                        <section id="left">
+                            <section id="generalStats">
+                                {generalStats.map(element => (
+                                    <StatComponent stat={element.stat} description={element.description} />
+                                ))}
+                            </section>
+                            <section id="leftBottom">
+                                <section id="attributeSection">
+                                    {Object.keys(dndSkills).map((element) =>  (
+                                        <AttributeComponent
+                                            attribute={character.Attributes[element]}
+                                            description={element}
+                                            skillproficiencies={character.SkillProficiencies}
+                                            saveproficiencies={character.SaveProficiencies}
+                                        />
+                                    ))}
+                                </section>
+                                <section id="characterTraits">
+                                    {characterTraits.map(element => (
+                                        <StatComponent stat={element.stat} description={element.description} />
+                                    ))}
+                                </section>
+                            </section>
+                        </section>
+                        <section id="right">
+                            <div>
+                                {character.ProficienciesAndLanguages.map(element => (
+                                    <ProficiencyComponent proficiency={element} />
+                                ))}
+                                <div className='description'>Proficientes and languages</div>
+                            </div>
+                            <div>
+                                {Object.keys(character.FeaturesAndTraits).map((element) => (
+                                    <TraitsComponent traitName={element} traitDescription={character.FeaturesAndTraits[element]}/>
+                                ))}
+                                {character.Spellcaster === true ?
+                                    <SpellcastingComponent 
+                                        mana={character.Spellcasting.Slots}
+                                        attackMod={character.Spellcasting['Spell Attack Modifier']}
+                                        saveDC={character.Spellcasting['Spell Save DC']}
+                                        toggleSpellList={toggleSpellList}
+                                    />
+                                    : ""
+                                }
+                                <div className='description'>Features and traits</div>
+                            </div>
+                        </section>
+                    </main>
+                <SpellList spellsObject={character.Spellcasting.PreparedSpells} showSpellList={showSpellList} toggleSpellList={toggleSpellList} />
+                </div>
+            </div>
         </div>
     );
 }
