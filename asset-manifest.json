@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/silveriac/Amnesia-DnD-Sheets/static/css/main.c1830e0f.css",
+    "main.js": "/silveriac/Amnesia-DnD-Sheets/static/js/main.0b050561.js",
+    "static/js/453.f080be4b.chunk.js": "/silveriac/Amnesia-DnD-Sheets/static/js/453.f080be4b.chunk.js",
+    "index.html": "/silveriac/Amnesia-DnD-Sheets/index.html",
+    "main.c1830e0f.css.map": "/silveriac/Amnesia-DnD-Sheets/static/css/main.c1830e0f.css.map",
+    "main.0b050561.js.map": "/silveriac/Amnesia-DnD-Sheets/static/js/main.0b050561.js.map",
+    "453.f080be4b.chunk.js.map": "/silveriac/Amnesia-DnD-Sheets/static/js/453.f080be4b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1830e0f.css",
+    "static/js/main.0b050561.js"
+  ]
+}
