@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Amnesia-DnD-Sheets/static/css/main.c1830e0f.css",
-    "main.js": "/Amnesia-DnD-Sheets/static/js/main.850d7e5b.js",
+    "main.js": "/Amnesia-DnD-Sheets/static/js/main.ffa1ea74.js",
     "static/js/453.f080be4b.chunk.js": "/Amnesia-DnD-Sheets/static/js/453.f080be4b.chunk.js",
     "index.html": "/Amnesia-DnD-Sheets/index.html",
     "main.c1830e0f.css.map": "/Amnesia-DnD-Sheets/static/css/main.c1830e0f.css.map",
-    "main.850d7e5b.js.map": "/Amnesia-DnD-Sheets/static/js/main.850d7e5b.js.map",
+    "main.ffa1ea74.js.map": "/Amnesia-DnD-Sheets/static/js/main.ffa1ea74.js.map",
     "453.f080be4b.chunk.js.map": "/Amnesia-DnD-Sheets/static/js/453.f080be4b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c1830e0f.css",
-    "static/js/main.850d7e5b.js"
+    "static/js/main.ffa1ea74.js"
   ]
 }
