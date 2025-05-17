@@ -92,11 +92,14 @@
       "Oath of Vengeance. Spells": ["Bane", "Hunter's Mark"]
     },
     "Spellcasting": {
-      "Slots": 5,
+      "SpellCasting Ability": "Charisma",
+      "Mana": 5,
       "Spell Save DC": 12,
       "Spell Attack Modifier": 4,
       "PreparedSpells":{
         "1":[
+          "Bane",
+          "Hunter's Mark",
           "Cure Wounds",
           "Command",
           "Searing Smite",

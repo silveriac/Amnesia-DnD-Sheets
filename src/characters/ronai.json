@@ -1,0 +1,93 @@
+{
+  "CharacterName": "Ronai",
+  "Class": "Rogue",
+  "Level": 4,
+    "Spellcaster": false,
+  "Background": "Criminal (Spy)",
+  "Race": "Changeling",
+  "Alignment": "Chaotic Neutral",
+  "XP": null,
+  "Inspiration": null,
+  "SaveProficiencies": ["Dexterity", "Intelligence"],
+  "SkillProficiencies": ["Acrobatics", "Deception", "Insight", "Persuasion", "Sleight of Hand", "Stealth"],
+  "Expertise": ["Deception", "Stealth"],
+  "Attributes": {
+    "Strength": 10,
+    "Dexterity": 18,
+    "Constitution": 10,
+    "Intelligence": 13,
+    "Wisdom": 12,
+    "Charisma": 14
+  },
+  "Modifiers": {
+    "STR": 0,
+    "DEX": 4,
+    "CON": 0,
+    "INT": 1,
+    "WIS": 1,
+    "CHA": 2
+  },
+  "SavingThrows": {
+    "Strength": 0,
+    "Dexterity": 6,
+    "Constitution": 0,
+    "Intelligence": 3,
+    "Wisdom": 1,
+    "Charisma": 2
+  },
+  "Skills": {
+    "Acrobatics": 6,
+    "Animal Handling": 1,
+    "Arcana": 1,
+    "Athletics": 0,
+    "Deception": 6,
+    "History": 1,
+    "Insight": 3,
+    "Intimidation": 4,
+    "Investigation": 3,
+    "Medicine": 1,
+    "Nature": 1,
+    "Perception": 1,
+    "Performance": 2,
+    "Persuasion": 4,
+    "Religion": 3,
+    "Sleight of Hand": 8,
+    "Stealth": 8,
+    "Survival": 1
+  },
+  "ProficiencyBonus": 2,
+  "ArmorClass": 15,
+  "Initiative": 4,
+  "Speed": 30,
+  "HitPoints": {
+    "Max": 23,
+    "Current": null,
+    "Temporary": null
+  },
+  "HitDice": {
+    "Total": "4d8",
+    "Used": null
+  },
+  "PassiveWisdom": 11,
+  "PersonalityTraits": "Smart, cunning, witty, driven",
+  "Ideals": "Honor, legacy",
+  "Bonds": "Her clan",
+  "Flaws": "Superiority complex, believes she's smarter than everyone. Greedy.",
+  "Equipment": ["Leather armor"],
+  "Currency": {
+    "CP": null,
+    "SP": null,
+    "EP": null,
+    "GP": 30,
+    "PP": null
+  },
+  "ProficienciesAndLanguages": ["Weapons: Simple weapons, hand crossbows, longswords, rapiers, shortswords", "Thieves' tools", "Languages: Common and Elvish"],
+  "FeaturesAndTraits": {
+    "Cunning Action": "You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.",
+    "Sneak Attack": "2d6.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.\nThe attack must use a finesse or a ranged weapon.\nYou don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.",
+    "Shapechanger": "As an action, you change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height between Medium and Small. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait. You stay in the new form until you use an action to revert to your true form or until you die.",
+    "Roguish Archetype: Thief": ["Fast Hands", "Second-Story Work"]
+  },
+  "Spellcasting": null,
+  "Weapons": []
+}

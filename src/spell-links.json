@@ -4,5 +4,27 @@
   "Cure Wounds": [1, "https://www.dndbeyond.com/spells/2619079-cure-wounds"],
   "Command": [1, "https://www.dndbeyond.com/spells/2618985-command"],
   "Searing Smite": [1, "https://www.dndbeyond.com/spells/2619009-searing-smite"],
-  "Compelled Duel": [1, "https://dnd5e.wikidot.com/spell:compelled-duel"]
+  "Compelled Duel": [1, "https://dnd5e.wikidot.com/spell:compelled-duel"],
+
+  "Improved Minor Illusion": [0, "https://www.dndbeyond.com/spells/2191-minor-illusion"],
+  "Prestidigitation": [0, "https://www.dndbeyond.com/spells/2213-prestidigitation"],
+  "Fire Bolt": [0, "https://www.dndbeyond.com/spells/2103-fire-bolt"],
+  "Mage Hand": [0, "https://www.dndbeyond.com/spells/2173-mage-hand"],
+  "Message": [0, "https://www.dndbeyond.com/spells/2188-message"],
+  "Disguise Self": [1, "https://www.dndbeyond.com/spells/2069-disguise-self"],
+  "Detect Magic": [1, "https://www.dndbeyond.com/spells/2065-detect-magic"],
+  "Magic Missile": [1, "https://www.dndbeyond.com/spells/2176-magic-missile"],
+  "Knock": [2, "https://www.dndbeyond.com/spells/2162-knock"],
+  "Arcane Lock": [2, "https://www.dndbeyond.com/spells/2003-arcane-lock"],
+  "Detect Thoughts": [2, "https://www.dndbeyond.com/spells/2067-detect-thoughts"],
+  "Thought Shield": [2, "https://dnd5e.wikidot.com/spell:thought-shield"],
+  "Misty Step": [2, "https://www.dndbeyond.com/spells/2195-misty-step"],
+
+  "Manifest Echo": [0, "https://dnd5e.wikidot.com/fighter:echo-knight#toc0"],
+  "Unleash Incarnation": [0, "https://dnd5e.wikidot.com/fighter:echo-knight#toc1"],
+
+  "Fast Hands": [0, "https://dnd5e.wikidot.com/rogue:thief#toc1"],
+  "Second-Story Work": [0, "https://dnd5e.wikidot.com/rogue:thief#toc1"]
+
+
 }

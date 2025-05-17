@@ -1,0 +1,116 @@
+{
+  "CharacterName": "Luna",
+  "Class": "Wizard",
+  "Level": 4,
+  "Spellcaster": true,
+  "Background": "Artisan",
+  "Race": "Human",
+  "Alignment": "Neutral Good",
+  "XP": null,
+  "Inspiration": null,
+  "SaveProficiencies": ["Intelligence", "Wisdom"],
+  "SkillProficiencies": ["Arcana", "Insight", "Investigation"],
+  "Attributes": {
+    "Strength": 9,
+    "Dexterity": 14,
+    "Constitution": 12,
+    "Intelligence": 18,
+    "Wisdom": 16,
+    "Charisma": 10
+  },
+  "Modifiers": {
+    "STR": -1,
+    "DEX": 2,
+    "CON": 1,
+    "INT": 4,
+    "WIS": 3,
+    "CHA": 0
+  },
+  "SavingThrows": {
+    "Strength": -1,
+    "Dexterity": 2,
+    "Constitution": 1,
+    "Intelligence": 6,
+    "Wisdom": 5,
+    "Charisma": 0
+  },
+  "Skills": {
+    "Acrobatics": 2,
+    "Animal Handling": 3,
+    "Arcana": 6,
+    "Athletics": -1,
+    "Deception": 0,
+    "History": 6,
+    "Insight": 5,
+    "Intimidation": 0,
+    "Investigation": 6,
+    "Medicine": 3,
+    "Nature": 4,
+    "Perception": 3,
+    "Performance": 0,
+    "Persuasion": 0,
+    "Religion": 4,
+    "Sleight of Hand": 2,
+    "Stealth": 2,
+    "Survival": 3
+  },
+  "ProficiencyBonus": 2,
+  "ArmorClass": 12,
+  "Initiative": 2,
+  "Speed": 30,
+  "HitPoints": {
+    "Max": 22,
+    "Current": null,
+    "Temporary": null
+  },
+  "HitDice": {
+    "Total": "4d6",
+    "Used": null
+  },
+  "PassiveWisdom": 13,
+  "PersonalityTraits": "Luna es creativa y aplicada, pero creativa y perfeccionista",
+  "Ideals": null,
+  "Bonds": "Su familia, el arte",
+  "Flaws": "Impaciente e impertinente",
+  "Equipment": ["Pluma (foco arcano)"],
+  "Currency": {
+    "CP": null,
+    "SP": null,
+    "EP": null,
+    "GP": 20,
+    "PP": null
+  },
+  "ProficienciesAndLanguages": ["Weapons: Daggers, darts, slings, quarterstaffs, light crossbows"],
+  "FeaturesAndTraits": {
+    "School of Illusion": ["Improved Minor Illusion"]
+  },
+  "Spellcasting": {
+    "Ritual Casting": "You can cast spells as rituals",
+    "SpellCasting Ability": "Intelligence",
+    "Mana": 11,
+    "Spell Save DC": 14,
+    "Spell Attack Modifier": 6,
+    "PreparedSpells":{
+      "0":[
+        "Improved Minor Illusion",
+        "Prestidigitation",
+        "Fire Bolt",
+        "Mage Hand",
+        "Message"
+      ],
+      "1":[
+        "Disguise Self",
+        "Detect Magic",
+        "Magic Missile"
+      ],
+      "2":[
+        "Knock",
+        "Arcane Lock",
+        "Detect Thoughts",
+        "Thought Shield",
+        "Misty Step"
+      ]
+    }
+  },
+  "Weapons": []
+}

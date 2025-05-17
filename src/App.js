@@ -1,7 +1,33 @@
 import './App.css';
+import { useEffect, useState } from 'react';
 import spells from './spell-links.json';
-import baldric from './baldric.json';
-import { useState } from 'react';
+import baldric from './characters/baldric.json';
+import eldin from './characters/eldin.json';
+
+import ronai from './characters/ronai.json';
+
+import luna from './characters/luna.json';
+
+const params = new URLSearchParams(window.location.search);
+let character = params.get("character") ?  params.get("character") : 1;
+switch(character){
+    default:
+        character = baldric;
+        break;
+    case "1":
+        character = baldric;
+        break;
+    case "2":
+        character = luna;
+        break;
+    case "3":
+        character = eldin;
+        break;
+    case "4":
+        character = ronai;
+        break;
+}
+let revealedSpells =[];
 
 const dndSkills = {
     "Strength": ["Athletics"],
@@ -12,14 +38,12 @@ const dndSkills = {
     "Charisma": ["Deception", "Intimidation", "Performance", "Persuasion"]
   };
 
-let character = baldric; //change this based on queryParams
-let spellSheetVisible = false;
-
 const generalStats = [
     { stat: character.ProficiencyBonus, description: "Proficiency Bonus" },
     { stat: character.ArmorClass, description: "Armor Class" },
     { stat: character.Initiative, description: "Initiative" },
     { stat: character.Speed, description: "Speed" },
+    { stat: character.PassiveWisdom, description: "Passive Wisdom" },
     { stat: character.HitPoints.Max, description: "Hit Points" },
 ];
 
@@ -40,11 +64,10 @@ const characterTraits = [
 
 
 function StatComponent({ stat, description }) {
-    const [isVisible, setVisibility, style] = useVisibility(false);
-
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
     return (
         <div>
-            <div onClick={() => setVisibility(true)} className="stat" style={style}>
+            <div onClick={() => setVisibility(true)} className={"stat " + hiddenClass}>
                 {stat}
             </div>
             <div className="description">
@@ -55,14 +78,14 @@ function StatComponent({ stat, description }) {
 };
 
 function AttributeComponent({ attribute, description, skillproficiencies, saveproficiencies}) {
-    const [isVisible, setVisibility, style] = useVisibility(false);
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
     let modifier = Math.floor((attribute - 10) / 2);
     let modifierPlus = modifier > 0 ? "+" + modifier.toString() : modifier;
-    let savingThrow = saveproficiencies.includes(attribute) ? modifier + character.ProficiencyBonus : modifier;
+    let savingThrow = saveproficiencies.includes(description) ? modifier + character.ProficiencyBonus : modifier;
     return (
         <div className="attribute">
             <div>
-                <div onClick={() => setVisibility(true)} className="modifier" style={style}>
+                <div onClick={() => setVisibility(true)} className={"modifier " + hiddenClass}>
                     <span>{isVisible? modifierPlus : 0}</span>
                     <br/>
                     <span className="core-stat">{isVisible? attribute : "+0"}</span>
@@ -75,8 +98,10 @@ function AttributeComponent({ attribute, description, skillproficiencies, savepr
                         skillStat={savingThrow > 0 ? "+" + savingThrow.toString() : savingThrow}
                         skillName= "Saving Throw"
                 />
-                {dndSkills[description].map((element, index) =>{
-                    let skill = skillproficiencies.includes(element) ? modifier + character.ProficiencyBonus : modifier;
+                {dndSkills[description].map((element) =>{
+                    let bonus = character.ProficiencyBonus;
+                    if(character.Expertise && character.Expertise.includes(element)) bonus = bonus*2
+                    let skill = skillproficiencies.includes(element) ? modifier + bonus : modifier;
                     return(
                         <SkillComponent
                             skillStat={skill > 0 ? "+" + skill.toString() : skill}
@@ -90,11 +115,11 @@ function AttributeComponent({ attribute, description, skillproficiencies, savepr
 };
 
 function SkillComponent({skillStat, skillName}) {
-    const [isVisible, setVisibility, style] = useVisibility(false);
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
 
     return (
         <li>
-            <span onClick={() => setVisibility(true)} className="stat-horizontal" style={style}>
+            <span onClick={() => setVisibility(true)} className={"stat-horizontal " + hiddenClass}>
                 {isVisible? skillStat : 0}
             </span>
             <span>{skillName}</span>
@@ -103,10 +128,10 @@ function SkillComponent({skillStat, skillName}) {
 };
 
 function ProficiencyComponent({proficiency}) {
-    const [isVisible, setVisibility, style] = useVisibility(false);
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
     return(
         <>
-            <span onClick={() => setVisibility(true)} style={style}>
+            <span onClick={() => setVisibility(true)} className={"proficiency " + hiddenClass}>
                 {isVisible? proficiency : "No item"}
             </span>
         </>
@@ -114,22 +139,25 @@ function ProficiencyComponent({proficiency}) {
 };
 
 function TraitsComponent({traitName, traitDescription}) {
-    const [isVisible, setVisibility, style] = useVisibility(false);
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
     if(Array.isArray(traitDescription)){
-        traitDescription = traitDescription.map(element => (
-            <>
-                <a href={spells[element][1]} target="_blank" rel="noreferrer">
-                    {element}
-                </a>
-                <br />
-            </>
-        ));
+        traitDescription = traitDescription.map(element => {
+            if(isVisible) revealedSpells.push(element)
+                return(
+                <>
+                    <a href={spells[element][1]} target="_blank" rel="noreferrer">
+                        {element}
+                    </a>
+                    <br />
+                </>
+            )
+        });
     };
     return(
         <>
-            <span onClick={() => setVisibility(true)} style={style}>
+            <span onClick={() => setVisibility(true)} className={"trait " + hiddenClass}>
                 <span>
-                    {isVisible && ("• " + traitName + ": ")}
+                    {isVisible && ("• " + traitName)}
                 </span>
             <br/>
                 {isVisible? traitDescription : "No item"}
@@ -138,57 +166,61 @@ function TraitsComponent({traitName, traitDescription}) {
     );
 };
 
-function SpellcastingComponent({mana, saveDC, attackMod, toggleSpellList}) {
-    const [isVisible, setVisibility, style] = useVisibility(false);
+function SpellcastingComponent({spellCastObject, toggleSpellList}) {
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
     return(
-        <div onClick={() => setVisibility(true)} style={style}>
+        <div onClick={() => setVisibility(true)} className={"trait " + hiddenClass}>
             <span>
                 <b>• Spellcasting</b>
             </span>
             <br />
-            <span>
-                <b>Mana:</b> {mana}
-            </span>
-            <br />
-            <span>
-                <b>Spell Save DC:</b> {saveDC}
-            </span>
-            <br />
-            <span>
-                <b>Spell Attack Modifier:</b> {attackMod}
-            </span>
-            <br />
-            {isVisible &&
-                <span className='toggleModal' onClick={toggleSpellList}>
-                    Spell List
-                </span>
-            }
+            {Object.keys(spellCastObject).map(element => {
+                if(typeof spellCastObject[element] === "object"){
+                    return(
+                        <>
+                            {isVisible &&
+                            <span className='toggleModal' onClick={toggleSpellList}>
+                                Prepared Spells
+                            </span>
+                        }
+                        </>
+                    )
+                }else{
+                    return(
+                        <>
+                        <span>
+                            <b>{element}:</b> {spellCastObject[element]}
+                        </span>
+                        <br />
+                        </>
+                    )
+                }
+            })}
             <br />
         </div>
     );
 };
 
 function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
-    
     return (
         <>
             {showSpellList && (
                 <div id="spellList">
-                    <button onClick={toggleSpellList}>Cerrar</button>
+                    <div onClick={toggleSpellList} className="icon">
+                        <img src='./close-icon.png' alt="close" />
+                    </div>
                     <div className='spellLvl'>
                         {Object.keys(spellsObject).map((spellList, index) =>  {
                             return(
                                 <div>
-                                    <p>Level {Object.keys(spellsObject)[index]} Spells</p>
+                                    <p>{ Object.keys(spellsObject)[index] === "0" ? "Cantrips" : "Level " + Object.keys(spellsObject)[index] + " Spells"}</p>
                                     {
-                                        spellsObject[spellList].map((element) =>{
-                                        return(<Spell item={element} />)
+                                        spellsObject[spellList].map((element) => {
+                                            return(<Spell item={element} />)
                                         })
                                     }
                                 </div>
                             )
-
-
                          })}
                     </div>
                 </div>
@@ -198,11 +230,14 @@ function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
 };
 
 function Spell({item}){
-    const [isVisible, setVisibility, style] = useVisibility(false);
-    console.log(style);
-    
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
+      useEffect(() => {
+    if (revealedSpells.includes(item)) {
+      setVisibility(true);
+    }
+  }, [revealedSpells, item]);
     return(
-        <span onClick={() => setVisibility(true)} style={style}>
+        <span onClick={() => {setVisibility(true); revealedSpells.push(item);}} className={hiddenClass}>
             {isVisible?
                 <a href={spells[item][1]} target="_blank" rel="noreferrer">{item}</a>
                 : "no item"
@@ -214,16 +249,8 @@ function Spell({item}){
 
 const useVisibility = (initial = false) => {
     const [isVisible, setVisibility] = useState(initial);
-    const style = isVisible ? {} : {
-        backgroundColor: "black",
-        cursor: "pointer",
-        webkitUserSelect: "none",
-        msUserSelect: "none",
-        userSelect: "none",
-        color: "black",
-        textDecoration: "none"
-    };
-    return [isVisible, setVisibility, style];
+    const hiddenClass = isVisible ? "" : "hidden";
+    return [isVisible, setVisibility, hiddenClass];
 };
 
 function App() {
@@ -275,17 +302,15 @@ function App() {
                                 {character.ProficienciesAndLanguages.map(element => (
                                     <ProficiencyComponent proficiency={element} />
                                 ))}
-                                <div className='description'>Proficientes and languages</div>
+                                <div className='description'>Proficiencies and languages</div>
                             </div>
                             <div>
                                 {Object.keys(character.FeaturesAndTraits).map((element) => (
                                     <TraitsComponent traitName={element} traitDescription={character.FeaturesAndTraits[element]}/>
                                 ))}
                                 {character.Spellcaster === true ?
-                                    <SpellcastingComponent 
-                                        mana={character.Spellcasting.Slots}
-                                        attackMod={character.Spellcasting['Spell Attack Modifier']}
-                                        saveDC={character.Spellcasting['Spell Save DC']}
+                                    <SpellcastingComponent
+                                        spellCastObject={character.Spellcasting}
                                         toggleSpellList={toggleSpellList}
                                     />
                                     : ""
@@ -294,7 +319,13 @@ function App() {
                             </div>
                         </section>
                     </main>
-                <SpellList spellsObject={character.Spellcasting.PreparedSpells} showSpellList={showSpellList} toggleSpellList={toggleSpellList} />
+                {character.Spellcaster === true ?
+                    <SpellList
+                        spellsObject={character.Spellcasting.PreparedSpells}
+                        showSpellList={showSpellList} toggleSpellList={toggleSpellList}
+                    />
+                    : ""
+                }
                 </div>
             </div>
         </div>

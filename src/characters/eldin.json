@@ -1,0 +1,98 @@
+{
+  "CharacterName": "Eldin",
+  "Class": "Fighter",
+  "Level": 4,
+    "Spellcaster": false,
+  "Background": "Traveller",
+  "Race": "Wood Elf",
+  "Alignment": "Chaotic Good",
+  "XP": null,
+  "Inspiration": null,
+  "SaveProficiencies": ["Strength", "Constitution"],
+  "SkillProficiencies": ["Animal Handling", "Insight", "Medicine", "Perception", "Performance"],
+  "Attributes": {
+    "Strength": 16,
+    "Dexterity": 14,
+    "Constitution": 14,
+    "Intelligence": 10,
+    "Wisdom": 14,
+    "Charisma": 10
+  },
+  "Modifiers": {
+    "STR": 3,
+    "DEX": 2,
+    "CON": 2,
+    "INT": 0,
+    "WIS": 2,
+    "CHA": 0
+  },
+  "SavingThrows": {
+    "Strength": 5,
+    "Dexterity": 2,
+    "Constitution": 4,
+    "Intelligence": 0,
+    "Wisdom": 0,
+    "Charisma": 1
+  },
+  "Skills": {
+    "Acrobatics": 2,
+    "Animal Handling": 4,
+    "Arcana": 0,
+    "Athletics": 3,
+    "Deception": 0,
+    "History": 0,
+    "Insight": 4,
+    "Intimidation": 0,
+    "Investigation": 0,
+    "Medicine": 4,
+    "Nature": 0,
+    "Perception": 4,
+    "Performance": 2,
+    "Persuasion": 0,
+    "Religion": 0,
+    "Sleight of Hand": 2,
+    "Stealth": 2,
+    "Survival": 2
+  },
+  "ProficiencyBonus": 2,
+  "ArmorClass": 14,
+  "Initiative": null,
+  "Speed": 30,
+  "HitPoints": {
+    "Max": 40,
+    "Current": null,
+    "Temporary": null
+  },
+  "HitDice": {
+    "Total": null,
+    "Used": null
+  },
+  "PassiveWisdom": 12,
+  "PersonalityTraits": "Loving, himbo",
+  "Ideals": "Love and nature are the most important things",
+  "Bonds": "My home, the Retsam forest",
+  "Flaws": "Impulsive and innocent",
+  "Equipment": ["Leather armor"],
+  "Currency": {
+    "CP": null,
+    "SP": null,
+    "EP": null,
+    "GP": null,
+    "PP": null
+  },
+  "ProficienciesAndLanguages": ["Languages: Common and Elvish", "Juegos de cartas y Laúd", "Weapons: Simple weapons, martial weapons, longsword, shortsword, shortbow, and longbow"],
+  "FeaturesAndTraits": {
+    "Darkvision": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.",
+    "Fey Ancestry": "You have advantage on saving throws against being charmed, and magic can’t put you to sleep.",
+    "Second Wind": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.\nOnce you use this feature, you must finish a short or long rest before you can use it again.",
+    "Action Surge": "You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action.\nOnce you use this feature, you must finish a short or long rest before you can use it again.",
+    "Fighting Style: Archery": "+2 to attack with ranged weapons",
+    "Echo Fighter": ["Manifest Echo", "Unleash Incarnation"]
+  },
+    "Spellcasting": {
+    "PreparedSpells":{
+    "0":[]
+    }
+},
+  "Weapons": []
+}
