@@ -7,7 +7,6 @@ import ronai from './characters/ronai.json';
 import luna from './characters/luna.json';
 import defaultCharacter from './characters/default.json';
 
-let hiddenFields = 0;
 let revealedSpells =[];
 const params = new URLSearchParams(window.location.search);
 let character = params.get("character") ?  params.get("character") : 1;
@@ -64,7 +63,7 @@ const characterTraits = [
 ];
 
 function StatComponent({ stat, description }) {
-    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
+    const [setVisibility, hiddenClass] = useVisibility(false);
     return (
         <div>
             {
@@ -213,7 +212,7 @@ function SpellcastingComponent({spellCastObject, toggleSpellList}) {
 
 function ManaComponent({}){
     const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
-    return(<div className={"mana " + hiddenClass} onClick={() => setVisibility(true)}></div>)
+    return(<div className={"mana " + hiddenClass} onClick={() => setVisibility(!isVisible)}></div>)
 }
 
 function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
@@ -266,7 +265,6 @@ function Spell({item}){
 const useVisibility = (initial = false) => {
     const [isVisible, setVisibility] = useState(initial);
     const hiddenClass = isVisible ? "" : "hidden";
-    hiddenFields++;
     return [isVisible, setVisibility, hiddenClass];
 };
 
