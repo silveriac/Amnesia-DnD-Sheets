@@ -3,16 +3,18 @@ import { useEffect, useState } from 'react';
 import spells from './spell-links.json';
 import baldric from './characters/baldric.json';
 import eldin from './characters/eldin.json';
-
 import ronai from './characters/ronai.json';
-
 import luna from './characters/luna.json';
+import defaultCharacter from './characters/default.json';
 
+let hiddenFields = 0;
+let revealedSpells =[];
 const params = new URLSearchParams(window.location.search);
 let character = params.get("character") ?  params.get("character") : 1;
+
 switch(character){
     default:
-        character = baldric;
+        character = defaultCharacter;
         break;
     case "1":
         character = baldric;
@@ -27,7 +29,6 @@ switch(character){
         character = ronai;
         break;
 }
-let revealedSpells =[];
 
 const dndSkills = {
     "Strength": ["Athletics"],
@@ -59,19 +60,20 @@ const characterTraits = [
     { stat: character.Ideals, description: "Ideals" },
     { stat: character.Bonds, description: "Bonds" },
     { stat: character.Flaws, description: "Flaws" },
-    { stat: character.Equipment.join("\n"), description: "Equipment" },
+    { stat: character.Equipment, description: "Equipment" },
 ];
-
 
 function StatComponent({ stat, description }) {
     const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
     return (
         <div>
-            <div onClick={() => setVisibility(true)} className={"stat " + hiddenClass}>
-                {stat}
-            </div>
+            {
+                Array.isArray(stat) ?
+                stat.map(element =>(<StatComponent stat={element} />))
+                : <div onClick={() => setVisibility(true)} className={"stat " + hiddenClass}>{stat}</div>
+            }
             <div className="description">
-                <p>{description}</p>
+                {description && <p>{description}</p>}
             </div>
         </div>
     );
@@ -116,7 +118,6 @@ function AttributeComponent({ attribute, description, skillproficiencies, savepr
 
 function SkillComponent({skillStat, skillName}) {
     const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
-
     return (
         <li>
             <span onClick={() => setVisibility(true)} className={"stat-horizontal " + hiddenClass}>
@@ -236,6 +237,7 @@ function Spell({item}){
       setVisibility(true);
     }
   }, [revealedSpells, item]);
+  
     return(
         <span onClick={() => {setVisibility(true); revealedSpells.push(item);}} className={hiddenClass}>
             {isVisible?
@@ -250,6 +252,7 @@ function Spell({item}){
 const useVisibility = (initial = false) => {
     const [isVisible, setVisibility] = useState(initial);
     const hiddenClass = isVisible ? "" : "hidden";
+    hiddenFields++;
     return [isVisible, setVisibility, hiddenClass];
 };
 

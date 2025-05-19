@@ -1,4 +1,7 @@
 {
+  "Habilidad 1": [0, "-"],
+  "Habilidad 2": [0, "-"],
+
   "Bane": [1, "https://www.dndbeyond.com/spells/2009-bane"],
   "Hunter's Mark": [1, "https://www.dndbeyond.com/spells/2619166-hunters-mark"],
   "Cure Wounds": [1, "https://www.dndbeyond.com/spells/2619079-cure-wounds"],

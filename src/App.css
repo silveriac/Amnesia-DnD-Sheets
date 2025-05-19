@@ -40,7 +40,7 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Tuffy:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-*{transition: all .5s;}
+*{  transition: background-color 2s ease, color instant ease;}
 html{
     background: linear-gradient(to top, rgba(129, 12, 133, 0.5), rgba(135, 140, 207, 0.8)), url("../public/prism.png");
     font-family: "Tuffy", sans-serif;;
@@ -325,7 +325,7 @@ header{
 #characterTraits > div:first-child, #right > div:first-child{
     margin-top: 0px;
 }
-#characterTraits > div, #characterTraits > div > div:first-child{
+#characterTraits > div, #characterTraits > div > div:not(:last-child){
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -335,7 +335,7 @@ header{
 }
 #right > div{
     border: 2px solid black;
-    transition: all 0.3s ease-in;
+    transition: all 0.5s ease-in;
     border-radius: 5px;
     padding-top: 15px;
     padding-bottom: 20px;

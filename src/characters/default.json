@@ -1,0 +1,59 @@
+{
+    "CharacterName": "Nombre",
+    "Class": "Clase",
+    "Level": 4,
+    "Spellcaster": true,
+    "Background": "Clase",
+    "Race": "Raza",
+    "Alignment": "Alineamiento",
+    "XP": null,
+    "Inspiration": null,
+    "SaveProficiencies": [],
+    "SkillProficiencies": [],
+    "Attributes": {
+      "Strength": 10,
+      "Dexterity": 10,
+      "Constitution": 10,
+      "Intelligence": 10,
+      "Wisdom": 10,
+      "Charisma": 10
+    },
+    "ProficiencyBonus": 2,
+    "ArmorClass": 10,
+    "Initiative": 0,
+    "Speed": 20,
+    "HitPoints": {
+      "Max": 10,
+      "Current": null,
+      "Temporary": null
+    },
+    "HitDice": {
+      "Total": "4d10",
+      "Used": null
+    },
+    "PassiveWisdom": 10,
+    "PersonalityTraits": "-",
+    "Ideals": "-",
+    "Bonds": "-",
+    "Flaws": "-",
+    "Equipment": [
+      "-",
+      "-",
+      "-"
+    ],
+    "Currency": {
+      "CP": null,
+      "SP": null,
+      "EP": null,
+      "GP": 20,
+      "PP": null
+    },
+    "ProficienciesAndLanguages": ["-", "-", "-", "-"],
+    "FeaturesAndTraits": {
+      "Feature": "Description",
+      "Subclase": ["Habilidad 1", "Habilidad 2"]
+    },
+    "Spellcasting": {
+    },
+    "Weapons": []
+  }
