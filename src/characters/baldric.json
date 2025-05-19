@@ -93,7 +93,7 @@
     },
     "Spellcasting": {
       "SpellCasting Ability": "Charisma",
-      "Mana": 5,
+      "MaxMana": 5,
       "Spell Save DC": 12,
       "Spell Attack Modifier": 4,
       "PreparedSpells":{

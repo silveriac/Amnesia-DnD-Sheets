@@ -303,6 +303,24 @@ main{
     text-align: left;
     padding-bottom: 10px;
 }
+.mana{
+    margin-block: 0;
+    margin-inline: 2px;
+    height: 15px;
+    aspect-ratio: 1;
+    background-color: #999999;
+    transition: transform .4s;
+    display: inline-block;
+}
+.mana.hidden{
+    background-color: #418ed6;
+}
+.mana.hidden:hover{
+    background-color: rgb(178, 83, 233);
+    transform: scale(1.1);
+    transition: transform .4s;
+
+}
 .toggleModal{
     text-decoration: underline;
     color: blue;

@@ -87,7 +87,7 @@
   "Spellcasting": {
     "Ritual Casting": "You can cast spells as rituals",
     "SpellCasting Ability": "Intelligence",
-    "Mana": 11,
+    "MaxMana": 11,
     "Spell Save DC": 14,
     "Spell Attack Modifier": 6,
     "PreparedSpells":{

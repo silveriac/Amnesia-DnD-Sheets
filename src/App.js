@@ -169,6 +169,10 @@ function TraitsComponent({traitName, traitDescription}) {
 
 function SpellcastingComponent({spellCastObject, toggleSpellList}) {
     const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
+    const manas = [];
+    for (let i = 0; i < spellCastObject.MaxMana; i++) {
+        manas.push(<ManaComponent />);
+    };
     return(
         <div onClick={() => setVisibility(true)} className={"trait " + hiddenClass}>
             <span>
@@ -181,7 +185,7 @@ function SpellcastingComponent({spellCastObject, toggleSpellList}) {
                         <>
                             {isVisible &&
                             <span className='toggleModal' onClick={toggleSpellList}>
-                                Prepared Spells
+                                <b>Prepared Spells</b>
                             </span>
                         }
                         </>
@@ -189,18 +193,28 @@ function SpellcastingComponent({spellCastObject, toggleSpellList}) {
                 }else{
                     return(
                         <>
-                        <span>
-                            <b>{element}:</b> {spellCastObject[element]}
-                        </span>
-                        <br />
+                            <span>
+                                <b>{element}:</b> {spellCastObject[element]}
+                            </span>
+                            <br />
                         </>
                     )
                 }
             })}
             <br />
+            <br />
+            <b>Mana:</b>
+            <br />
+            {isVisible && manas}
+            <br />
         </div>
     );
 };
+
+function ManaComponent({}){
+    const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
+    return(<div className={"mana " + hiddenClass} onClick={() => setVisibility(true)}></div>)
+}
 
 function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
     return (
