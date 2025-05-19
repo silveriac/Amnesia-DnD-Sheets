@@ -312,6 +312,11 @@ main{
     transition: transform .4s;
     display: inline-block;
 }
+.mana:hover{
+    background-color: #99ceff;
+    transform: scale(1.05);
+    cursor: pointer;
+}
 .mana.hidden{
     background-color: #418ed6;
 }
