@@ -63,7 +63,7 @@ const characterTraits = [
 ];
 
 function StatComponent({ stat, description }) {
-    const [setVisibility, hiddenClass] = useVisibility(false);
+    const [, setVisibility, hiddenClass] = useVisibility(false);
     return (
         <div>
             {
