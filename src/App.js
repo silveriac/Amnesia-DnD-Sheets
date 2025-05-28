@@ -1,5 +1,5 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import spells from './spell-links.json';
 import baldric from './characters/baldric.json';
 import eldin from './characters/eldin.json';
@@ -216,10 +216,22 @@ function ManaComponent({}){
 }
 
 function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
+    const modalRef = useRef();
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                toggleSpellList(); // Call your close function
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [toggleSpellList]);
     return (
         <>
             {showSpellList && (
-                <div id="spellList">
+                <div id="spellList" ref={modalRef}>
                     <div onClick={toggleSpellList} className="icon">
                         <img src='./close-icon.png' alt="close" />
                     </div>
