@@ -1,6 +1,5 @@
 import './App.css';
 import { useEffect, useState, useRef } from 'react';
-import spells from './spell-links.json';
 import baldric from './characters/baldric.json';
 import luna from './characters/luna.json';
 import eldin from './characters/eldin.json';
