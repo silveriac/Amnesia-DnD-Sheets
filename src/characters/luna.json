@@ -69,10 +69,10 @@
   },
   "PassiveWisdom": 13,
   "PersonalityTraits": "Luna es creativa y aplicada, pero creativa y perfeccionista",
-  "Ideals": null,
-  "Bonds": "Su familia, el arte",
-  "Flaws": "Impaciente e impertinente",
-  "Equipment": ["Pluma (foco arcano)"],
+  "Ideals": "Knowledge advances humanity forward",
+  "Bonds": "Art, my family",
+  "Flaws": "Impatient, ",
+  "Equipment": ["Quill (arcane focus)"],
   "Currency": {
     "CP": null,
     "SP": null,
@@ -82,7 +82,9 @@
   },
   "ProficienciesAndLanguages": ["Weapons: Daggers, darts, slings, quarterstaffs, light crossbows"],
   "FeaturesAndTraits": {
-    "School of Illusion": ["Improved Minor Illusion"]
+    "School of Illusion": [
+      ["Improved Minor Illusion", "https://www.dndbeyond.com/spells/2191-minor-illusion"]
+    ]
   },
   "Spellcasting": {
     "Ritual Casting": "You can cast spells as rituals",
@@ -91,24 +93,24 @@
     "Spell Save DC": 14,
     "Spell Attack Modifier": 6,
     "PreparedSpells":{
-      "0":[
-        "Improved Minor Illusion",
-        "Prestidigitation",
-        "Fire Bolt",
-        "Mage Hand",
-        "Message"
+      "0": [
+        ["Improved Minor Illusion", "https://www.dndbeyond.com/spells/2191-minor-illusion"],
+        ["Prestidigitation", "https://www.dndbeyond.com/spells/2213-prestidigitation"],
+        ["Fire Bolt", "https://www.dndbeyond.com/spells/2103-fire-bolt"],
+        ["Mage Hand", "https://www.dndbeyond.com/spells/2173-mage-hand"],
+        ["Message", "https://www.dndbeyond.com/spells/2188-message"]
       ],
-      "1":[
-        "Disguise Self",
-        "Detect Magic",
-        "Magic Missile"
+      "1": [
+        ["Disguise Self", "https://www.dndbeyond.com/spells/2069-disguise-self"],
+        ["Detect Magic", "https://www.dndbeyond.com/spells/2065-detect-magic"],
+        ["Magic Missile", "https://www.dndbeyond.com/spells/2176-magic-missile"]
       ],
-      "2":[
-        "Knock",
-        "Arcane Lock",
-        "Detect Thoughts",
-        "Thought Shield",
-        "Misty Step"
+      "2": [
+        ["Knock", "https://www.dndbeyond.com/spells/2162-knock"],
+        ["Arcane Lock", "https://www.dndbeyond.com/spells/2003-arcane-lock"],
+        ["Detect Thoughts", "https://www.dndbeyond.com/spells/2067-detect-thoughts"],
+        ["Thought Shield", "https://dnd5e.wikidot.com/spell:thought-shield"],
+        ["Misty Step", "https://www.dndbeyond.com/spells/2195-misty-step"]
       ]
     }
   },

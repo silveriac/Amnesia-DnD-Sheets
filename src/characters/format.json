@@ -1,0 +1,74 @@
+{
+    "CharacterName": "Name Nameson",
+    "Class": "Class",
+    "Level": 4,
+    "Spellcaster": true,
+    "Background": "Some Background",
+    "Race": "Human",
+    "Alignment": "True Neutral",
+    "XP": null,
+    "Inspiration": null,
+    "SaveProficiencies": ["Wisdom", "Charisma", "This auto applies the ProficiencyBonus"],
+    "SkillProficiencies": ["Athletics", "Intimidation", "This also auto applies the ProficiencyBonus"],
+    "Attributes": {
+      "Strength": 16,
+      "Dexterity": 9,
+      "Constitution": 18,
+      "Intelligence": 12,
+      "Wisdom": 10,
+      "Charisma": 14
+    },
+    "ProficiencyBonus": 2,
+    "ArmorClass": 17,
+    "Initiative": -1,
+    "Speed": 20,
+    "HitPoints": {
+      "Max": 44
+    },
+    "HitDice": {
+      "Total": "4d10",
+      "Used": null
+    },
+    "PassiveWisdom": 10,
+    "PersonalityTraits": "Something Something",
+    "Ideals": "Something else",
+    "Bonds": "idk",
+    "Flaws": "Probably an alcoholic who knows",
+    "Equipment": [
+      "Chain mail",
+      "Some weapon",
+      "This needs to be an array btw"
+    ],
+    "Currency": {
+      "CP": null,
+      "SP": null,
+      "EP": null,
+      "GP": 20,
+      "PP": "I actually didn't use these. put money in equipment I guess"
+    },
+    "ProficienciesAndLanguages": ["All armors", "shields", "This also needs to be an array"],
+    "FeaturesAndTraits": {
+      "Trait Name": "Some description",
+      "Oath of Vengeance. Spells":[
+        ["Bane", "http://link-to-spell-description"],
+        ["If the trait gives you spells, put it here", "http://link-to-spell-description"]
+      ]
+    },
+    "Spellcasting": {
+      "SpellCasting Ability": "Charisma",
+      "MaxMana": 5,
+      "Spell Save DC": 12,
+      "Spell Attack Modifier": 4,
+      "PreparedSpells":{
+        "1":[
+          ["Yes, I use mana for", "http://link-to-spell-description"],
+          ["It's pretty much spell points from the DM's guide", "http://link-to-spell-description"],
+          ["These spells will be added to the spell list modal", "http://link-to-spell-description"]
+        ],
+        "2":[
+          "Second level spells"
+        ]
+      }
+    },
+    "Weapons": ["I don't use this either, just put it in equipment", "http://link-to-spell-description"]
+  }

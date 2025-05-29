@@ -136,7 +136,6 @@ main{
 }
 .stat{
     outline: var(--secondary-border);
-
 }
 .stat:not(>.description){
     height: 50%;

@@ -87,12 +87,11 @@
     "Second Wind": "You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level.\nOnce you use this feature, you must finish a short or long rest before you can use it again.",
     "Action Surge": "You can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action.\nOnce you use this feature, you must finish a short or long rest before you can use it again.",
     "Fighting Style: Archery": "+2 to attack with ranged weapons",
-    "Echo Fighter": ["Manifest Echo", "Unleash Incarnation"]
+    "Echo Fighter": [
+      ["Manifest Echo", "https://dnd5e.wikidot.com/fighter:echo-knight#toc0"],
+      ["Unleash Incarnation", "https://dnd5e.wikidot.com/fighter:echo-knight#toc1"]
+    ]
   },
-    "Spellcasting": {
-    "PreparedSpells":{
-    "0":[]
-    }
-},
+  "Spellcasting": null,
   "Weapons": []
 }

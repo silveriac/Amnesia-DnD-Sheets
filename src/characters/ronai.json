@@ -71,7 +71,7 @@
   "PassiveWisdom": 11,
   "PersonalityTraits": "Smart, cunning, witty, driven",
   "Ideals": "Honor, legacy",
-  "Bonds": "Her clan",
+  "Bonds": "My clan",
   "Flaws": "Superiority complex, believes she's smarter than everyone. Greedy.",
   "Equipment": ["Leather armor"],
   "Currency": {
@@ -86,7 +86,10 @@
     "Cunning Action": "You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.",
     "Sneak Attack": "2d6.\nOnce per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll.\nThe attack must use a finesse or a ranged weapon.\nYou don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll.",
     "Shapechanger": "As an action, you change your appearance and your voice. You determine the specifics of the changes, including your coloration, hair length, and sex. You can also adjust your height between Medium and Small. You can make yourself appear as a member of another race, though none of your game statistics change. You can't duplicate the appearance of an individual you've never seen, and you must adopt a form that has the same basic arrangement of limbs that you have. Your clothing and equipment aren't changed by this trait. You stay in the new form until you use an action to revert to your true form or until you die.",
-    "Roguish Archetype: Thief": ["Fast Hands", "Second-Story Work"]
+    "Roguish Archetype: Thief": [
+      ["Fast Hands", "https://dnd5e.wikidot.com/rogue:thief#toc0"],
+      ["Second-Story Work", "https://dnd5e.wikidot.com/rogue:thief#toc1"]
+    ]
   },
   "Spellcasting": null,
   "Weapons": []

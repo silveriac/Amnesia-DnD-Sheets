@@ -18,60 +18,22 @@
       "Wisdom": 10,
       "Charisma": 14
     },
-    "Modifiers": {
-      "STR": 3,
-      "DEX": -1,
-      "CON": 4,
-      "INT": 1,
-      "WIS": 0,
-      "CHA": 2
-    },
-    "SavingThrows": {
-      "Strength": 3,
-      "Dexterity": -1,
-      "Constitution": 4,
-      "Intelligence": 1,
-      "Wisdom": 2,
-      "Charisma": 4
-    },
-    "Skills": {
-      "Acrobatics": -1,
-      "Animal Handling": 0,
-      "Arcana": 1,
-      "Athletics": 5,
-      "Deception": 2,
-      "History": 1,
-      "Insight": 0,
-      "Intimidation": 4,
-      "Investigation": 1,
-      "Medicine": 2,
-      "Nature": 1,
-      "Perception": 0,
-      "Performance": 2,
-      "Persuasion": 4,
-      "Religion": 1,
-      "Sleight of Hand": -1,
-      "Stealth": -1,
-      "Survival": 0
-    },
     "ProficiencyBonus": 2,
     "ArmorClass": 17,
     "Initiative": -1,
     "Speed": 20,
     "HitPoints": {
-      "Max": 44,
-      "Current": null,
-      "Temporary": null
+      "Max": 44
     },
     "HitDice": {
       "Total": "4d10",
       "Used": null
     },
     "PassiveWisdom": 10,
-    "PersonalityTraits": "Driven. Calm. Serious.",
+    "PersonalityTraits": "Driven, Calm and Serious.",
     "Ideals": "Justice",
     "Bonds": "Family",
-    "Flaws": "Filled with rage, obsessed with vengeance",
+    "Flaws": "Rageful, vengeance-obssesed",
     "Equipment": [
       "Chain mail",
       "A small soldier doll",
@@ -89,7 +51,10 @@
       "Lay on Hands": "20 points",
       "Divine Smite": "2d8",
       "Fighting Style": "Duelist (+2 dmg when using only one one-handed weapon)",
-      "Oath of Vengeance. Spells": ["Bane", "Hunter's Mark"]
+      "Oath of Vengeance. Spells:": [
+        ["Bane", "https://www.dndbeyond.com/spells/2009-bane"],
+        ["Hunter's Mark", "https://www.dndbeyond.com/spells/2619166-hunters-mark"]
+      ]
     },
     "Spellcasting": {
       "SpellCasting Ability": "Charisma",
@@ -98,12 +63,12 @@
       "Spell Attack Modifier": 4,
       "PreparedSpells":{
         "1":[
-          "Bane",
-          "Hunter's Mark",
-          "Cure Wounds",
-          "Command",
-          "Searing Smite",
-          "Compelled Duel"
+          ["Bane", "https://www.dndbeyond.com/spells/2009-bane"],
+          ["Hunter's Mark", "https://www.dndbeyond.com/spells/2619166-hunters-mark"],
+          ["Cure Wounds", "https://www.dndbeyond.com/spells/2619079-cure-wounds"],
+          ["Command", "https://www.dndbeyond.com/spells/2618985-command"],
+          ["Searing Smite", "https://www.dndbeyond.com/spells/2619009-searing-smite"],
+          ["Compelled Duel", "https://dnd5e.wikidot.com/spell:compelled-duel"]
         ]
       }
     },

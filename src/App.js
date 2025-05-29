@@ -2,9 +2,9 @@ import './App.css';
 import { useEffect, useState, useRef } from 'react';
 import spells from './spell-links.json';
 import baldric from './characters/baldric.json';
+import luna from './characters/luna.json';
 import eldin from './characters/eldin.json';
 import ronai from './characters/ronai.json';
-import luna from './characters/luna.json';
 import defaultCharacter from './characters/default.json';
 
 let revealedSpells =[];
@@ -145,8 +145,8 @@ function TraitsComponent({traitName, traitDescription}) {
             if(isVisible) revealedSpells.push(element)
                 return(
                 <>
-                    <a href={spells[element][1]} target="_blank" rel="noreferrer">
-                        {element}
+                    <a href={element[1]} target="_blank" rel="noreferrer">
+                        {element[0]}
                     </a>
                     <br />
                 </>
@@ -257,16 +257,19 @@ function SpellList({ spellsObject, showSpellList, toggleSpellList }) {
 
 function Spell({item}){
     const [isVisible, setVisibility, hiddenClass] = useVisibility(false);
-      useEffect(() => {
-    if (revealedSpells.includes(item)) {
-      setVisibility(true);
-    }
-  }, [revealedSpells, item]);
-  
+    const exists = revealedSpells.some(
+        (element) => element[0] === item[0]
+    ); //check wether the spell is already revealed
+    console.log(revealedSpells);
+    
+    useEffect(() => {
+        if (exists) setVisibility(true);
+    }, [revealedSpells, item]);
+
     return(
         <span onClick={() => {setVisibility(true); revealedSpells.push(item);}} className={hiddenClass}>
             {isVisible?
-                <a href={spells[item][1]} target="_blank" rel="noreferrer">{item}</a>
+                <a href={item[1]} target="_blank" rel="noreferrer">{item[0]}</a>
                 : "no item"
             }
             <br />
