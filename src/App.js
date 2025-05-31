@@ -65,11 +65,13 @@ function StatComponent({ stat, description }) {
     const [, setVisibility, hiddenClass] = useVisibility(false);
     return (
         <div>
-            {
-                Array.isArray(stat) ?
-                stat.map(element =>(<StatComponent stat={element} />))
-                : <div onClick={() => setVisibility(true)} className={"stat " + hiddenClass}>{stat}</div>
-            }
+            <div>
+                {
+                    Array.isArray(stat) ?
+                    stat.map(element =>(<StatComponent stat={element} />))
+                    : <div onClick={() => setVisibility(true)} className={"stat " + hiddenClass}>{stat}</div>
+                }
+            </div>
             <div className="description">
                 {description && <p>{description}</p>}
             </div>
@@ -90,7 +92,6 @@ function AttributeComponent({ attribute, description, skillproficiencies, savepr
                     <br/>
                     <span className="core-stat">{isVisible? attribute : "+0"}</span>
                 </div>
-
                 <span className="description">{description}</span>
             </div>
             <ul>
